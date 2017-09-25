@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface FlickrPhoto : NSObject
 
 //create properties relating to the API
@@ -17,6 +17,9 @@
 @property (nonatomic,strong) NSString* server;
 @property (nonatomic,strong) NSString* title;
 @property (nonatomic) NSInteger farm;
+
+@property (nonatomic,strong) UIImage* image;
+
 
 
 - (instancetype)initWithInfo:(NSDictionary<NSString*,id>*)info;
