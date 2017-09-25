@@ -13,6 +13,8 @@
 		DA3A11331F79765F002DA18A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3A11311F79765F002DA18A /* Main.storyboard */; };
 		DA3A11351F79765F002DA18A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA3A11341F79765F002DA18A /* Assets.xcassets */; };
 		DA3A11381F79765F002DA18A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA3A11361F79765F002DA18A /* LaunchScreen.storyboard */; };
+		DA3A11431F79A404002DA18A /* FlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3A11421F79A404002DA18A /* FlickrPhoto.m */; };
+		DA3A11461F79AB33002DA18A /* FlickrAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3A11451F79AB33002DA18A /* FlickrAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,11 @@
 		DA3A11341F79765F002DA18A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA3A11371F79765F002DA18A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA3A11391F79765F002DA18A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA3A11401F79A3CB002DA18A /* Secret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Secret.h; sourceTree = "<group>"; };
+		DA3A11411F79A404002DA18A /* FlickrPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhoto.h; sourceTree = "<group>"; };
+		DA3A11421F79A404002DA18A /* FlickrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhoto.m; sourceTree = "<group>"; };
+		DA3A11441F79AB33002DA18A /* FlickrAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPI.h; sourceTree = "<group>"; };
+		DA3A11451F79AB33002DA18A /* FlickrAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +65,14 @@
 		DA3A11271F79765F002DA18A /* Cats */ = {
 			isa = PBXGroup;
 			children = (
-				DA3A112B1F79765F002DA18A /* AppDelegate.h */,
-				DA3A112C1F79765F002DA18A /* AppDelegate.m */,
 				DA3A112E1F79765F002DA18A /* ViewController.h */,
 				DA3A112F1F79765F002DA18A /* ViewController.m */,
 				DA3A11311F79765F002DA18A /* Main.storyboard */,
-				DA3A11341F79765F002DA18A /* Assets.xcassets */,
-				DA3A11361F79765F002DA18A /* LaunchScreen.storyboard */,
-				DA3A11391F79765F002DA18A /* Info.plist */,
+				DA3A11441F79AB33002DA18A /* FlickrAPI.h */,
+				DA3A11451F79AB33002DA18A /* FlickrAPI.m */,
+				DA3A11411F79A404002DA18A /* FlickrPhoto.h */,
+				DA3A11421F79A404002DA18A /* FlickrPhoto.m */,
+				DA3A11401F79A3CB002DA18A /* Secret.h */,
 				DA3A11281F79765F002DA18A /* Supporting Files */,
 			);
 			path = Cats;
@@ -74,6 +81,11 @@
 		DA3A11281F79765F002DA18A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DA3A112B1F79765F002DA18A /* AppDelegate.h */,
+				DA3A112C1F79765F002DA18A /* AppDelegate.m */,
+				DA3A11341F79765F002DA18A /* Assets.xcassets */,
+				DA3A11361F79765F002DA18A /* LaunchScreen.storyboard */,
+				DA3A11391F79765F002DA18A /* Info.plist */,
 				DA3A11291F79765F002DA18A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -151,6 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA3A11301F79765F002DA18A /* ViewController.m in Sources */,
+				DA3A11461F79AB33002DA18A /* FlickrAPI.m in Sources */,
+				DA3A11431F79A404002DA18A /* FlickrPhoto.m in Sources */,
 				DA3A112D1F79765F002DA18A /* AppDelegate.m in Sources */,
 				DA3A112A1F79765F002DA18A /* main.m in Sources */,
 			);
