@@ -8,9 +8,11 @@
 
 #import "ViewController.h"
 #import "FlickrAPI.h"
+#import "CatPhotoCollectionViewCell.h"
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic,strong) NSArray <FlickrPhoto*> *catPhotoArray;
 
@@ -26,30 +28,36 @@
     // so one way of dealing with this is moving the return type to a block parameter
     // so we pass in a block that gets the "return value" and does what we would like
     // to do with the return value
-    // (another/older way would be to make this class the delegate of the api object
-    // and have a delegate method that would get the results (but that would mean
-    // we couldn't just use a class method, would actually need to alloc&init a FlickrAPI object
     [FlickrAPI searchFor:@"cats" complete:^(NSArray<FlickrPhoto *> *results) {
         self.catPhotoArray = results;
-        NSLog(@"photos are loaded");
         
-        FlickrPhoto *catPhoto = self.catPhotoArray.firstObject;
-        if(catPhoto.image){
-            self.imageView.image = catPhoto.image;
-        } else {
-        [FlickrAPI loadImageForPhoto:catPhoto complete:^(UIImage *result) {
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                self.imageView.image = result;
-            }];
-            
-        }];
-        
-        }
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.collectionView reloadData];
     }];
+        NSLog(@"loaded photo results");
+        
+    }];
+    
     NSLog(@"view did load finish loading");//happens before loaded photo results
     
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.catPhotoArray.count;
+
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    CatPhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    //we set our array equal to the array of the json even tho it was wrapped around a dictionary
+    [cell setFlickrPhoto:self.catPhotoArray[indexPath.item]];
+    
+
+    return cell;
+}
 
 
 

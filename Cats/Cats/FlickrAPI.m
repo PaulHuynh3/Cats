@@ -37,8 +37,8 @@
         }
         //short way of doing [[NSMutableArray alloc]init];
         NSMutableArray<FlickrPhoto*> *catPhotos = [@[] mutableCopy];
-        //result is in a dictionary and then an array. 2d.
-        //photos to access the dictionary photo to access the array of the api.
+        
+        //creates an empty array where i am saving the json's array..
         for (NSDictionary *photoInfo in result[@"photos"][@"photo"]) {
             //use the instance method of flickrPhoto to save the item into the method.
             [catPhotos addObject:[[FlickrPhoto alloc]initWithInfo:photoInfo]];
@@ -55,7 +55,7 @@
 //the input is the complete block and photo object
 +(void)loadImageForPhoto:(FlickrPhoto *)photo complete:(void (^)(UIImage *))complete{
 
-    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[photo url] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[photo url] completionHandler:^(NSData * data, NSURLResponse *  response, NSError * error) {
         
         // this is where we get the results
         if (error != nil) {
